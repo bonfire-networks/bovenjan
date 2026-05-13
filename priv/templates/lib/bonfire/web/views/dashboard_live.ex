@@ -40,6 +40,14 @@ defmodule Bonfire.Web.Views.DashboardLive do
                 true,
                 current_user: current_user
               ) && {Bonfire.Tag.Web.WidgetTagsLive, []},
+              current_user &&
+                Settings.get(
+                  [Bonfire.Web.Views.DashboardLive, :include, :recent_articles],
+                  true,
+                  current_user: current_user
+                ) &&
+                {Bonfire.UI.Social.WidgetRecentArticlesLive,
+                 [limit: 5, widget_title: l("Recent Articles"), image_position: :bottom]},
               # {Bonfire.UI.Social.WidgetTrendingLinksLive, []},
               # Settings.get([Bonfire.Web.Views.DashboardLive, :include, :admins], true,
               #   current_user: current_user
@@ -79,15 +87,7 @@ defmodule Bonfire.Web.Views.DashboardLive do
             current_user: current_user
           ) &&
             {Bonfire.UI.Social.WidgetTrendingLinksLive,
-             [limit: 5, widget_title: l("Trending Links")]},
-          current_user &&
-            Settings.get(
-              [Bonfire.Web.Views.DashboardLive, :include, :recent_articles],
-              true,
-              current_user: current_user
-            ) &&
-            {Bonfire.UI.Social.WidgetRecentArticlesLive,
-             [limit: 5, widget_title: l("Recent Articles")]}
+             [limit: 5, widget_title: l("Trending Links")]}
         ],
         & &1
       )
