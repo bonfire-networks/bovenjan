@@ -6,13 +6,13 @@
   default: false;
   prefersdark: false;
   color-scheme: light;
-  --color-base-100: oklch(100% 0 0);
-  --color-base-200: oklch(99% 0 0);
-  --color-base-300: oklch(98% 0 0);
+  --color-base-100: oklch(0.98 0.01 63.2);
+  --color-base-200: oklch(0.95 0.01 65);
+  --color-base-300: oklch(0.94 0.01 65.01);
   --color-base-content: oklch(24% 0 0);
   --color-primary: oklch(66% 0.08 230);
   --color-primary-content: oklch(100% 0 0);
-  --color-secondary: #d1d5d6;
+  --color-secondary: #cecece;
   --color-secondary-content: oklch(35% 0 0);
   --color-accent: oklch(58% 0.17 27);
   --color-accent-content: oklch(100% 0 0);
@@ -34,6 +34,7 @@
   --border: 1px;
   --depth: 0;
   --noise: 0;
+  --spacing-page-header: 68px;
 }
 
 /* BovenJan Dark - dark teal base from #002e3e */
@@ -42,19 +43,13 @@
   default: false;
   prefersdark: true;
   color-scheme: dark;
-
-  /* base colors - dark teal tones from #002e3e */
-  --color-base-100: oklch(23% 0.02 220);
-  --color-base-200: oklch(18% 0.015 220);
-  --color-base-300: oklch(28% 0.025 220);
-  --color-base-content: oklch(92% 0.01 65);
-
-  /* primary - lighter brand blue */
-  --color-primary: oklch(72% 0.08 230);
-  --color-primary-content: oklch(15% 0.02 230);
-
-  /* secondary - lighter coral */
-  --color-secondary: oklch(70% 0.12 25);
+  --color-base-100: oklch(23% .02 220);
+  --color-base-200: oklch(18% .015 220);
+  --color-base-300: oklch(0.18 0.01 230.22);
+  --color-base-content: oklch(92% .01 65);
+  --color-primary: oklch(72% .08 230);
+  --color-primary-content: oklch(15% .02 230);
+  --color-secondary: oklch(0.3 0.03 230.57);
   --color-secondary-content: oklch(15% 0.02 25);
 
   /* accent - lighter orange */
@@ -74,20 +69,13 @@
   --color-warning-content: oklch(18% 0.04 60);
   --color-error: oklch(68% 0.17 28);
   --color-error-content: oklch(15% 0.01 28);
-
-  /* border radius - same as light */
   --radius-selector: 2rem;
-  --radius-field: 0.75rem;
-  --radius-box: 0.75rem;
-
-  /* base sizes */
+  --radius-field: 2rem;
+  --radius-box: 0rem;
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
-
-  /* border size */
   --border: 1px;
-
-  /* effects */
-  --depth: 1;
+  --depth: 0;
   --noise: 0;
+  --spacing-page-header: 68px;
 }
