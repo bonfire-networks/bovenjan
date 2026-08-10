@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Exit on any error
 set -e
@@ -47,28 +47,8 @@ copy_dir_with_prompt "$SOURCE_DIR/priv/repo/" "priv/repo/"
 echo -e "\nCopying custom templates..."
 copy_dir_with_prompt "$SOURCE_DIR/priv/templates/lib/" "lib/"
 
-echo -e "\nInstalling flavour themes..."
-# Find the custom_themes.css file
-CUSTOM_THEMES=""
-for path in "extensions/bonfire_ui_common/assets/css/custom_themes.css" "deps/bonfire_ui_common/assets/css/custom_themes.css"; do
-    if [ -f "$path" ]; then
-        CUSTOM_THEMES="$path"
-        break
-    fi
-done
+copy_flavour_static "$SOURCE_DIR"
 
-if [ -n "$CUSTOM_THEMES" ] && [ -f "$SOURCE_DIR/themes/theme.css" ]; then
-    # Check if bovenjan themes are already present
-    if grep -q 'name: "bovenjan"' "$CUSTOM_THEMES" 2>/dev/null; then
-        echo "BovenJan themes already present in $CUSTOM_THEMES"
-    else
-        echo "Appending BovenJan themes to $CUSTOM_THEMES"
-        echo "" >> "$CUSTOM_THEMES"
-        cat "$SOURCE_DIR/themes/theme.css" >> "$CUSTOM_THEMES"
-        echo "BovenJan themes installed"
-    fi
-else
-    echo "Warning: Could not find custom_themes.css or themes/theme.css"
-fi
+install_flavour_themes "$SOURCE_DIR" "$FLAVOUR"
 
 echo -e "\n$FLAVOUR installation complete!"
