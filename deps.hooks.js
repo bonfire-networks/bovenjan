@@ -6,7 +6,10 @@ let ExtensionHooks = {};
 // import { GeolocateHooks } from "./../../deps/bonfire_geolocate/assets/js/extension"
 import { NotifyHooks } from "./../../deps/bonfire_notify/assets/js/extension"
 import LiveSelect from "./../../deps/live_select/priv/static/live_select.min.js"
+// thin shim only; the heavy xterm bundle is fetched on demand from /assets/console_terminal.js
+import { TerminalHooks } from "./../../deps/bonfire_ui_console/assets/js/terminal.js"
 
-Object.assign(ExtensionHooks, LiveSelect, NotifyHooks)
+
+Object.assign(ExtensionHooks, LiveSelect, NotifyHooks, TerminalHooks)
 
 export { ExtensionHooks }
