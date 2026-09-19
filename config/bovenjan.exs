@@ -22,3 +22,8 @@ config :bonfire, :ui,
 
 # enable marking comment as answer?
 config :bonfire_social, Bonfire.Social.Answers, modularity: :disabled
+
+# Which getting-started steps the sidebar widget offers, and in what order. Each key is declared by the extension whose feature it is about, along with its copy and its completion detector, so this only chooses between them, and a step whose extension is disabled here drops out on its own. Manual completion ("Mark done") is always available, so a step with no detector still works.
+# `notifications` comes after the steps that give somebody something to be notified about. Its action is the card that asks this browser for permission rather than a link anywhere, and the step goes once notifications reach them on any device.
+config :bonfire_ui_common, Bonfire.UI.Common.WidgetGettingStartedLive,
+  actions: [:profile, :read_rules, :notifications, :first_follow, :first_post]
